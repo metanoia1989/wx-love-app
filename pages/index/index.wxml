@@ -1,0 +1,40 @@
+<!--index.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+
+<scroll-view scroll-y="{{true}}" style="height: {{scrollHeight}}px" scrollTop="{{scrollTOp}}" bindscroll="scroll" bindscrolltolower="downLoad"
+    bindscrolltoupper="topLoad" upper-threshold="0" lower-threshold="0" enable-back-to-top="{{true}} ">
+
+    <view class="weui-search-bar">
+        <view class="weui-search-bar__form">
+            <view class="weui-search-bar__box">
+                <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping"
+                />
+                <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                    <icon type="clear" size="14"></icon>
+                </view>
+            </view>
+            <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                <icon class="weui-icon-search" type="search" size="14"></icon>
+                <view class="weui-search-bar__text">搜索</view>
+            </label>
+        </view>
+        <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+    </view>
+
+    <block wx:for="{{postsList}}" wx:key="id">
+        <view class="entry" id="{{item.id}}" catchtap="redirectSingle">
+            <view class="entry-title">{{item.title.rendered}}</view>
+            <view class="entry-body">{{item.excerpt.rendered}}...</view>
+            <view class="entry-info">
+                <text class="entry-span">{{item.date}} </text>
+                <text class="entry-span">{{item.tags}} </text>
+                <text class="entry-span">评论{{item.comment_count ? item.comment_count : 0}} </text>
+                <text class="entry-span">阅读{{item.views ? item.views : 0}} </text>
+            </view>
+        </view>
+    </block>
+    <view class="no-more" hidden="{{!isLastPage}}">
+        无更多文章....
+    </view>
+</scroll-view>

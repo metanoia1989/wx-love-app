@@ -1,0 +1,15 @@
+
+.title {
+    font-size: 40rpx;
+}
+
+.content {
+    font-size: 30rpx;
+    color: #525963;
+    padding: 30rpx;
+}
+
+text {
+    margin-top: 15rpx;
+    display: block;
+}

@@ -1,0 +1,29 @@
+@import "../../wxParse/wxParse.wxss";
+@import "../../style/wxParse.wxss";
+.page {
+    padding-left: 40rpx;
+    padding-right: 40rpx;
+    
+}
+
+.title {
+    text-align: center;
+    font-size: 40rpx;
+    font-weight: 500;
+    overflow: visible;
+}
+
+.wrapper {
+    padding-left: 20rpx;
+    padding-right: 20rpx;
+}
+
+.entry-box {
+    font-size: 30rpx;
+    color: #525963;
+    margin-top: 30rpx;
+    margin-bottom: 30rpx;
+    text-indent: 0;
+}
+
+

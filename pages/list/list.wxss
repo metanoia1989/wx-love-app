@@ -1,0 +1,26 @@
+/**topic.wxss**/
+
+image.cover {
+    position: relative;
+    height: 440rpx;
+}
+
+
+.cover:after {
+    content: '';
+    position: absolute;
+    bottom: -30%;
+    left: -20%;
+    transform: rotate(8deg);
+    background-color: #fff;
+    width: 150%;
+    height: 50%;
+}
+
+.topic-title {
+    position: absolute;
+    bottom: 0;
+    left: 30rpx;
+    z-index: 1003;
+    font-size: 50rpx;
+}

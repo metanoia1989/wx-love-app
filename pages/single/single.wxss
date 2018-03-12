@@ -1,0 +1,70 @@
+/**single.wxss**/
+@import "../../style/weui.wxss";
+@import "../../wxParse/wxParse.wxss";
+@import "../../style/wxParse.wxss";
+/* 底部评论栏 */
+
+.comment-fixed {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 0 6px rgba(30, 20, 20, 0.1);
+    z-index: 100;
+    /*margin-bottom:2rpx; */
+    opacity: 0.8;
+}
+
+.iconLine {
+    display: flex;
+}
+
+.img-menu {
+    width: 40rpx;
+    height: 40rpx;
+    display: inline-block;
+    text-align: center;
+}
+
+.icon-box {
+    justify-content: space-around;
+    margin-left: 40rpx;
+    margin-right: 40rpx;
+    margin-top: 20rpx;
+    margin-bottom: 5rpx;
+    display: flex;
+    position: relative;
+}
+
+.icon-box, .icon-box view {
+    overflow: visible;
+}
+
+
+.icon-text {
+    display: inline-block;
+    text-align: center;
+    height: 40rpx;
+    font-size: 30rpx;
+    margin-left: 10rpx;
+    color: #525963;
+    align-content: center;
+}
+
+.weui-badge {
+    position: absolute;
+    top: -.7em;
+    right: -.8em;
+}
+
+.share-button{
+    opacity: 0; 
+    position:absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    top:0;
+    left: 0;
+  }

@@ -1,0 +1,46 @@
+<!--single.wxml-->
+<import src="../../wxParse/wxParse.wxml" />
+<view class="entry" id="{{post.id}}">
+    <view class="entry-title">{{post.title}}</view>
+    <view class="entry-info">
+        <text class="entry-span">{{post.date}} </text>
+        <text class="entry-span">{{post.tags}} </text>
+        <!-- <text class="entry-span">评论{{post.comment_count ? post.comment_count : 0}} </text> -->
+        <text class="entry-span">阅读{{post.views ? post.views : 0}} </text>
+    </view>
+    <view class="entry-body">
+        <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+    </view>
+
+
+    <!-- 底部栏 -->
+    <view class="comment-fixed">
+        <!--功能图标-->
+        <view class="menu-box">
+            <view class="iconLine">
+                <view class="icon-box" bindtap="back">
+                    <image src="../../images/back.png" class="img-menu"></image>
+                </view>
+                <view class="icon-box">
+                    <image src="../../images/write.png" class="img-menu"></image>
+                    <text class="icon-text">写评论</text>
+                </view>
+                <view class="icon-box">
+                    <view style="position: relative;">
+                        <image src="../../images/reply.png" class="img-menu"></image>
+                        <view class="weui-badge" hidden="{{post.comment_count?false:true}}">{{post.comment_count}}</view>
+                    </view>
+                </view>
+                <view class="icon-box">
+                    <image src="../../images/profile-collection2.png" catchtap="clickLike" id="likebottom" class="img-menu"></image>
+                </view>
+                <view class="icon-box">
+                    <image src="../../images/forwarding.png" class="img-menu"> </image>
+                    <button class="share-button touch-active" open-type="share"></button>
+                </view>
+            </view>
+        </view>
+
+    </view>
+
+</view>

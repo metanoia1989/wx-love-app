@@ -1,0 +1,29 @@
+<!--list.wxml 专题文章列表-->
+<import src="../../templates/common-list.wxml" />
+<scroll-view style="height:100%;" scroll-y="true">
+
+    <view class="topic">
+        <image src="{{cate_img}}" class="cover">
+            <view class="topic-title">{{topicData.name}}专题</view>
+        </image>
+    </view>
+
+    <view class="showerror" style="display:{{showerror}}">
+        <image src="../../images/cry80.png" style="height:100rpx;width:100rpx"></image>
+        <view class="errortext">
+            暂时无法访问网络
+            <view class="">
+                <button class="more-button" bindtap="reload" size="mini" bindtap="reload">重新加载</button>
+            </view>
+        </view>
+    </view>
+
+    <block wx:if="{{showPostDisplay}}">
+        <template is="tempCommonList" data="{{postsList}}" />
+
+        <view class="loadingmore" hidden="{{!floatDisplay}}">
+            <view class="no-more" hidden="{{!isLastPage}}">----------无更多文章...---------</view>
+        </view>
+    </block>
+
+</scroll-view>

@@ -1,0 +1,52 @@
+{
+    "pages": [
+        "pages/index/index",
+        "pages/topic/topic",
+        "pages/list/list",
+        "pages/single/single",
+        "pages/comments/comments",
+        "pages/profile/profile",
+        "pages/page/page",
+        "pages/about/about",
+        "pages/offer/offer",
+        "pages/logs/logs"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "metanoia1989",
+        "navigationBarTextStyle": "black"
+    },
+    "tabBar": {
+        "color": "#9BABBA",
+        "selectedColor": "#495056",
+        "borderStyle": "white",
+        "backgroundColor": "#ffffff",
+        "list": [
+            {
+                "pagePath": "pages/index/index",
+                "iconPath": "images/tar-home.png",
+                "selectedIconPath": "images/tar-home-on.png",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/topic/topic",
+                "iconPath": "images/tar-types.png",
+                "selectedIconPath": "images/tar-types-on.png",
+                "text": "专题"
+            },
+            {
+                "pagePath": "pages/comments/comments",
+                "iconPath": "images/tar-recordes.png",
+                "selectedIconPath": "images/tar-recordes-on.png",
+                "text": "评论"
+            },
+            {
+                "pagePath": "pages/profile/profile",
+                "iconPath": "images/tar-profile.png",
+                "selectedIconPath": "images/tar-profile-on.png",
+                "text": "我的"
+            }
+        ]
+    }
+}

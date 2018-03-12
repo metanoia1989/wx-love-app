@@ -1,0 +1,34 @@
+/**topic.wxss**/
+
+scroll-view {
+    background-color: #E9E9E9;
+}
+
+.topic-common-list {
+    padding-top: 25rpx;
+}
+
+.topic-list-item {
+    background-color: #fff;
+    border-radius: 25rpx;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    margin-bottom: 50rpx;
+}
+
+.item-body {
+    padding-top: 20rpx;
+    padding-left: 30rpx;
+    padding-bottom: 20rpx;
+    border-bottom-left-radius: 25rpx;
+    border-bottom-right-radius: 25rpx;
+    box-shadow: 0 3px 10px 0 rgba(0,0,0,0.20);
+}
+
+.topic-list-item image.cover {
+    width: 100%;
+    height: 340rpx;
+    border-top-left-radius: 25rpx;
+    border-top-right-radius: 25rpx;
+}
+

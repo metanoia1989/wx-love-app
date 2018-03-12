@@ -1,0 +1,74 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  /* padding: 200rpx 0; */
+  box-sizing: border-box;
+  overflow: visible;
+} 
+
+page{
+    /* background-color: #F8F8F8; */
+    font-size: 16px;
+    font-family: -apple-system-font, Microsoft YaHei, Helvetica Neue, Helvetica, sans-serif;
+}
+
+
+/**
+* 文章列表
+*/
+.entry {
+    border-bottom: 0.5rpx solid rgba(0,0,0,0.2);
+    margin-left: 40rpx;
+    margin-right: 40rpx;
+    padding-top: 20rpx;
+    padding-bottom: 20rpx;
+}
+
+.entry-title {
+    font-weight: 100;
+    font-size: 40rpx;
+    color: #212832;
+}
+
+.entry-body {
+    /* text-indent: 70rpx; */
+    font-size: 34rpx;
+    font-weight: 100;
+    color: #525963;
+    padding-top: 20rpx;
+    padding-bottom: 20rpx;
+}
+
+.entry-info {
+    color: #666;
+    font-size: 30rpx;
+}
+
+.no-more{
+    text-align: center;
+}
+
+
+.link {
+    color: #118FFF;
+    display: inline;
+}
+
+.inline {
+    display: inline;
+}
+
+/* wxParse 文章样式 */
+/* 包裹文章的容器 */
+.article {
+    color: #525963;
+    padding-left: 30rpx;
+    padding-right: 30rpx;
+    padding-bottom: 60rpx;
+    font-size: 30rpx;
+}
+

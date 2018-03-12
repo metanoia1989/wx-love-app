@@ -1,0 +1,18 @@
+<import src="../../wxParse/wxParse.wxml" />
+
+<view class="page">
+    <view class="title">求职简历</view>
+    <view class="wrapper">
+        <view class="entry-box"> 正在广州找工作中，求工作</view>
+        <view class="entry-box">
+            PC版在线简历 
+            <view class="link" catchtap="copyLink" data-url="http://jianli.metanoia1989.com">
+                http://jianli.metanoia1989.com
+            </view>
+        </view>
+        <view class="entry-box"> 以下是我的个人简历</view>
+    </view>
+    <view class="article">
+        <template is="wxParse" data="{{wxParseData: article.nodes}}" />
+    </view>
+</view>

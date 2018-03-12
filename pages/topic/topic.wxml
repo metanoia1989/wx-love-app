@@ -1,0 +1,17 @@
+<!--topic.wxml-->
+<import src="../../templates/common-list.wxml" />
+<scroll-view style="height:100%;" scroll-y="true" lower-threshold="100rpx">
+
+    <view class="topic-common-list">
+        <block wx:for="{{topicsList}}" wx:key="id" wx:for-item="topic">
+            <view class="topic-list-item" id="{{topic.id}}" catchtap="redirectCate">
+                <image src="{{topic.cate_img}}" class="cover"></image>
+                <view class="item-body">
+                    <view class="entry-title">{{topic.name}}</view>
+                    <view class="entry-body">{{topic.description}}</view>
+                </view>
+            </view>
+        </block>
+    </view>
+
+</scroll-view>

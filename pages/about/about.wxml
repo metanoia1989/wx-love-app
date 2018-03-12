@@ -1,0 +1,21 @@
+<!--single.wxml-->
+<view class="container">
+    <view class="title">关于小程序</view>
+    <view class="content">
+        <text> 写这个小程序真不容易，小程序的api还有很多不熟悉，不过好歹会用一点。 </text>
+        <text> 很多代码参考了守望轩的开源小程序，界面参考了DeveWork极客。 </text>
+        <text> 感谢开源，感谢wordpress。 </text>
+        <view>
+            <text>守望轩开源小程序</text>
+            <text class="link" catchtap="copyLink" data-url="https://github.com/iamxjb/winxin-app-watch-life.net">
+                https://github.com/iamxjb/winxin-app-watch-life.net 
+            </text>
+        </view>
+        <view>
+            <text>DeveWork极客小程序系列教程</text>
+            <text class="link" catchtap="copyLink" data-url="https://devework.com/tag/weapp">
+                https://devework.com/tag/weapp
+            </text>
+        </view>
+    </view>
+</view>

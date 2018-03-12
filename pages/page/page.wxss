@@ -1,0 +1,21 @@
+/**single.wxss**/
+.title-box {
+    padding: 50rpx 20rpx;
+}
+
+.title-header .icon {
+    margin-right: 5rpx;
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.title-header {
+    font-size: 50rpx;
+    line-height: 60rpx;
+    margin-bottom: 25rpx;
+}
+
+.title-body {
+    font-size: 30rpx;
+    color: #525963;
+}

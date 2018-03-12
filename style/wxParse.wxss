@@ -1,0 +1,24 @@
+/* 用来覆盖wxParse原本的样式 */
+.wxParse-h1,
+.wxParse-h2,
+.wxParse-h3,
+.wxParse-h4,
+.wxParse-h5,
+.wxParse-h6 {
+    font-weight: lighter; 
+}
+
+.wxParse-h1 {
+    padding-bottom: 15rpx;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.wxParse-li, .wxParse-li-inner {
+    margin: 0 ;
+}
+
+.wxParse-p  {
+    text-indent: 70rpx;
+    margin-top: 20rpx;
+    margin-bottom: 20rpx;
+}

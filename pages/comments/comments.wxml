@@ -1,0 +1,31 @@
+<import src="../../templates/common-list.wxml" />
+
+
+<view class="topic-common-list">
+    <view class="topic-list-item">
+        <image src="../../images/comment-bg.jpg" class="cover"></image>
+    </view>
+</view>
+
+<view class="">
+    <view class="showerror" style="display:{{showerror}}">
+        <image src="../../images/cry80.png" style="height:100rpx;width:100rpx"></image>
+        <view class="errortext">
+            暂时无法访问网络
+            <view class="">
+                <button class="more-button" bindtap="reload" size="mini" bindtap="reload">重新加载</button>
+            </view>
+        </view>
+    </view>
+
+    <view style="display:{{showallDisplay}}">
+        <view class="log-list">
+            <block wx:key="id" wx:for="{{readLogs}}">
+                <view class="log-items" index="{{index}}" id="{{item.post_id}}"  catchtap="redictDetail">
+                    <text class="log-text">{{index + 1}}. {{item.content}}</text>
+                </view>
+            </block>
+        </view>
+    </view>
+
+</view>
