@@ -5,3 +5,7 @@
 
 - [守望轩开源小程序](https://github.com/iamxjb/winxin-app-watch-life.net)
 - [DeveWork极客小程序系列教程](https://devework.com/tag/weapp)
+
+# 使用
+这个小程序的appid appsecret 都是存储在 wordpress 的wp_options 表上的.
+需要手动新建这两行数据,或者直接把appid appsecret放在代码里.
