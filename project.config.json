@@ -1,7 +1,7 @@
 {
 	"description": "项目配置文件。",
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -54,7 +54,7 @@
 					"query": "type=collection"
 				},
 				{
-					"id": -1,
+					"id": 5,
 					"name": "single",
 					"pathName": "pages/single/single",
 					"query": "id=448"
@@ -70,6 +70,12 @@
 					"name": "offer",
 					"pathName": "pages/offer/offer",
 					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "reading",
+					"pathName": "pages/page/page",
+					"query": "type=reading"
 				}
 			]
 		}

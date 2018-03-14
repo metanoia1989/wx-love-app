@@ -8,6 +8,7 @@ var domain = config.getDomain;
 var pageCount = config.getPageCount;
 var categoriesID = config.getCategoriesID;
 var HOST_URI = 'https://' + domain + '/wp-json/wp/v2/';
+var HOST_URI_BLOG_JSON = 'https://' + domain + '/wp-json/';
 
 module.exports = {
     // 获取文章列表的 url
@@ -82,7 +83,7 @@ module.exports = {
     },
     //获取某文章评论
     getComments: function (obj) {
-        var url = HOST_URI + 'comments?per_page=100&orderby=date&order=asc&post=' + obj.postID + '&page=' + obj.page;
+        var url = HOST_URI + 'comments?per_page=5&orderby=date&order=asc&post=' + obj.postID + '&page=' + obj.page;
         return url;
     },
     //获取网站的最新20条评论
@@ -114,8 +115,21 @@ module.exports = {
     },
     //获取用户openid
     getOpenidUrl(id) {
-        var url = HOST_URI_WATCH_LIFE_JSON;
-        url += "weixin/getopenid";
+        var url = HOST_URI_BLOG_JSON;
+        url += "wx-api/getOpenid";
         return url;
     },
+
+    //提交微信评论
+    postWeixinComment: function () {
+        var url = HOST_URI_BLOG_JSON;
+        return url + 'wx-api/comments'
+    },
+
+    //获取微信评论
+    getWeixinComment: function (openid) {
+        var url = HOST_URI_BLOG_JSON;
+        return url + 'wx-api/comments?openid=' + openid;
+    },
+
 };

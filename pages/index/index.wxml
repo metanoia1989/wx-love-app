@@ -4,7 +4,7 @@
 <scroll-view scroll-y="{{true}}" style="height: {{scrollHeight}}px" scrollTop="{{scrollTOp}}" bindscroll="scroll" bindscrolltolower="downLoad"
     bindscrolltoupper="topLoad" upper-threshold="0" lower-threshold="0" enable-back-to-top="{{true}} ">
 
-    <view class="weui-search-bar">
+    <!-- <view class="weui-search-bar">
         <view class="weui-search-bar__form">
             <view class="weui-search-bar__box">
                 <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
@@ -20,7 +20,7 @@
             </label>
         </view>
         <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
-    </view>
+    </view> -->
 
     <block wx:for="{{postsList}}" wx:key="id">
         <view class="entry" id="{{item.id}}" catchtap="redirectSingle">

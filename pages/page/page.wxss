@@ -19,3 +19,15 @@
     font-size: 30rpx;
     color: #525963;
 }
+
+
+.log-list {
+    color: #525963;
+    font-size: 35rpx;
+    padding-left: 70rpx;
+    padding-right: 20rpx;
+}
+
+.log-items {
+    padding-bottom: 20rpx; 
+}

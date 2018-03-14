@@ -15,7 +15,7 @@ Page({
     //获取简历页面信息
     getPageData: function () {
         var self = this;
-        var getPageRequest = wxRequest.getRequest('https://blog.metanoia.com/wp-json/wp/v2/pages/483 ');
+        var getPageRequest = wxRequest.getRequest('https://blog.xinzedq.com/wp-json/wp/v2/pages/485');
         getPageRequest.then(response => {
             if (response.statusCode == 200) {
                 var article = response.data.content.rendered;

@@ -1,5 +1,6 @@
 <!--single.wxml-->
 <import src="../../wxParse/wxParse.wxml" />
+<scroll-view  scroll-into-view="{{toView}}"  scroll-y="{{true}}" bindscrolltolower="loadMore"  scroll-with-animation="{{true}}" class="scroll">
 <view class="entry" id="{{post.id}}">
     <view class="entry-title">{{post.title}}</view>
     <view class="entry-info">
@@ -12,27 +13,139 @@
         <template is="wxParse" data="{{wxParseData:article.nodes}}" />
     </view>
 
+    <!--  上一篇，下一篇  -->
+    <view wx:if="{{display}}" class="pagination">
+        <view wx:if="{{post.previous_post_id}}" class="nav-previous">
+            <navigator url="../single/single?id={{single.previous_post_id}}" open-type="redirect" hover-class="relatedNavigator">←{{single.previous_post_title}}</navigator>
+        </view>
+        <view wx:if="{{post.next_post_id}}" class="nav-next">
+            <navigator url="../single/single?id={{single.next_post_id}}" open-type="redirect" hover-class="relatedNavigator">{{single.next_post_title}}→</navigator>
+        </view>
+    </view>    
+
+    <!-- 评论区 -->
+    <view class="relatedTitle" id="comment0">
+        评论交流
+    </view>
+    <view class="entry-gap-like"></view>
+    <view class="commentheader">
+        有{{post.comment_count}}条评论
+    </view>
+
+    <block wx:key="id" wx:for="{{commentsList}}">
+        <view wx:if="{{item.parent == 0}}">
+            <view class="comment">
+                <view class="comment-user">
+                    <image src="{{item.author_url}}" class="gravatarImg"></image>
+                    <view style='display:flex;flex-direction: row; justify-content: space-between;width: 100%'>
+                        <view style='font-weight:bold;' bindtap="replay" data-id="{{item.id}}" data-name="{{item.author_name}}" data-userid="{{item.userid}}"
+                            data-formId="{{item.formId}}" data-commentdate="{{item.dateStr}}">{{item.author_name}}</view>
+                        <view bindtap="replay" data-id="{{item.id}}" data-name="{{item.author_name}}" data-userid="{{item.userid}}" data-formId="{{item.formId}}"
+                            data-commentdate="{{item.dateStr}}" class="comment-date">{{item.date}}</view>
+                    </view>
+                </view>
+                <view class="comment-summary" bindtap="replay" data-id="{{item.id}}" data-name="{{item.author_name}}" data-userid="{{item.userid}}"
+                    data-formId="{{item.formId}}" data-commentdate="{{item.dateStr}}"> {{item.summary}}</view>
+                <!-- 一级回复-->
+                <view wx:for="{{commentsList}}" wx:key="itemid1" wx:for-index="idx" wx:for-item="item1">
+                    <view wx:if="{{item1.parent===item.id}}">
+                        <view class="replay-user" bindtap="replay" data-id="{{item1.id}}" data-name="{{item1.author_name}}" data-userid="{{item1.userid}}"
+                            data-formId="{{item1.formId}}" data-commentdate="{{item1.dateStr}}">
+                            {{item1.author_name}} 回复{{item1.parent_name}}:{{item1.summary}}
+                        </view>
+
+
+                        <!-- 二级回复-->
+                        <view wx:for="{{commentsList}}" wx:key="itemid2" wx:for-index="idx" wx:for-item="item2">
+                            <view wx:if="{{item2.parent===item1.id}}">
+                                <view class="replay-user" bindtap="replay" data-id="{{item2.id}}" data-name="{{item2.author_name}}" data-userid="{{item2.userid}}"
+                                    data-formId="{{item2.formId}}" data-commentdate="{{item2.dateStr}}">
+                                    {{item2.author_name}} 回复 {{item2.parent_name}}:{{item2.summary}}
+                                </view>
+
+                                <!-- 三级回复-->
+                                <view wx:for="{{commentsList}}" wx:key="itemid3" wx:for-index="idx" wx:for-item="item3">
+                                    <view wx:if="{{item3.parent===item2.id}}">
+                                        <view class="replay-user" bindtap="replay" data-id="{{item3.id}}" data-name="{{item3.author_name}}" data-userid="{{item3.userid}}"
+                                            data-formId="{{item3.formId}}" data-commentdate="{{item3.dateStr}}">
+                                            {{item3.author_name}} 回复 {{item3.parent_name}}:{{item3.summary}}
+                                        </view>
+
+                                        <!-- 四级回复-->
+                                        <view wx:for="{{commentsList}}" wx:key="itemid4" wx:for-index="idx" wx:for-item="item4">
+                                            <view wx:if="{{item4.parent===item3.id}}">
+                                                <view class="replay-user">
+                                                    {{item4.author_name}} 回复 {{item4.parent_name}}:{{item4.summary}}
+                                                </view>
+                                            </view>
+                                        </view>
+                                        <!-- 四级回复-->
+
+                                    </view>
+                                </view>
+                                <!-- 三级回复-->
+
+                            </view>
+                        </view>
+                        <!-- 二级回复-->
+
+                    </view>
+                </view>
+                <!-- 一级回复-->
+
+            </view>
+        </view>
+
+    </block>    
+
+    <view wx:if="{{display}}">
+
+        <view class="more-comment" wx:if="{{!isLastPage}}">
+            --- 上拉加载更多评论 ---
+        </view>
+
+        <view hidden="{{!isNoComment}}">
+            <view class="no-more" hidden="{{!isLastPage}}">---无更多评论---</view>
+        </view>
+    </view>    
+</view>
+</scroll-view>
 
     <!-- 底部栏 -->
-    <view class="comment-fixed">
+    <view class="menuBackground" catchtap="hiddenInput" style="display:{{menuBackgroup ? 'block' : 'none'}}"></view>
+    <view class="comment-box input-fixed" wx:if="{{isShow}}">
+        <form catchsubmit="formSubmit" report-submit="true">
+        <view class="info">
+            <view class="info-title">发表评论</view>
+            <view class="info-body">评论需要授权登录,请允许</view>
+        </view>
+        <view class="comment-form">
+                <input class="comment-input" maxlength="200" name="inputPostID" value="{{post.id}}" style="display:none" />
+                <input class="comment-input" type='text' confirm-type="send" cursor-spacing="10" maxlength="100" name="inputComment" value="{{content}}" placeholder="{{placeholder}}" focus="{{focus}}" bindblur="onReplyBlur" bindfocus="onRepleyFocus" />
+                <button class="comment-button touch-active"  formType="submit">发送</button>
+        </view>
+        </form>
+    </view>
+    <view class="comment-fixed" wx:if="{{!isShow}}">
         <!--功能图标-->
-        <view class="menu-box">
+        <view class="menu-box" >
             <view class="iconLine">
                 <view class="icon-box" bindtap="back">
                     <image src="../../images/back.png" class="img-menu"></image>
                 </view>
-                <view class="icon-box">
+                <view class="icon-box" bindtap="showInput">
                     <image src="../../images/write.png" class="img-menu"></image>
                     <text class="icon-text">写评论</text>
                 </view>
-                <view class="icon-box">
+                <view class="icon-box" bindtap="jumpTo" data-opt="comment0">
                     <view style="position: relative;">
                         <image src="../../images/reply.png" class="img-menu"></image>
                         <view class="weui-badge" hidden="{{post.comment_count?false:true}}">{{post.comment_count}}</view>
                     </view>
                 </view>
                 <view class="icon-box">
-                    <image src="../../images/profile-collection2.png" catchtap="clickLike" id="likebottom" class="img-menu"></image>
+                    <image src="../../images/{{isCollection?'collection-on':'profile-collection2'}}.png" catchtap="toggleCollection" id="{{post.id}}"
+                        class="img-menu"></image>
                 </view>
                 <view class="icon-box">
                     <image src="../../images/forwarding.png" class="img-menu"> </image>
@@ -43,4 +156,3 @@
 
     </view>
 
-</view>

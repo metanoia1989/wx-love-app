@@ -22,6 +22,16 @@
             <text class="title-body">最近浏览目前仅支持保存在本地设备上，文章的最多保存数量为20条，点击文章名可以直达文章详情页。</text>
         </view>
     </block>
+
+    <!-- <block wx:if="{{isComments}}">
+        <view class="title-box">
+            <view class="title-header">
+                <image src="../../images/profile-read2.png" class="icon"></image>
+                <text>我的评论</text>
+            </view>
+            <text class="title-body">目前仅前20条评论。</text>
+        </view>
+    </block> -->
 </view>
 
 <view class="box">
@@ -38,10 +48,13 @@
     <view wx:if="{{showallDisplay}}">
         <view class="log-list">
             <block wx:key="id" wx:for="{{readLogs}}">
-                <view class="log-items" index="{{index}}" id="{{item.post_id}}"  catchtap="redictDetail">
-                    <text class="log-text">{{index + 1}}. {{item.content}}</text>
+                <view class="log-items" index="{{index}}" id="{{item[0]}}" catchtap="redictDetail">
+                    <text class="log-text">{{index + 1}}. {{item[1]}}</text>
                 </view>
             </block>
+            <view class="log-items" wx:if="{{shownodata}}">
+                <text class="log-text">没有相关文章</text>
+            </view>
         </view>
     </view>
 

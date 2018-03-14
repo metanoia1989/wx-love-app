@@ -1,27 +1,28 @@
 /**app.wxss**/
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  /* padding: 200rpx 0; */
-  box-sizing: border-box;
-  overflow: visible;
-} 
 
-page{
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    /* padding: 200rpx 0; */
+    box-sizing: border-box;
+    overflow: visible;
+}
+
+page {
     /* background-color: #F8F8F8; */
     font-size: 16px;
     font-family: -apple-system-font, Microsoft YaHei, Helvetica Neue, Helvetica, sans-serif;
 }
 
-
 /**
 * 文章列表
 */
+
 .entry {
-    border-bottom: 0.5rpx solid rgba(0,0,0,0.2);
+    border-bottom: 0.5rpx solid rgba(0, 0, 0, 0.2);
     margin-left: 40rpx;
     margin-right: 40rpx;
     padding-top: 20rpx;
@@ -29,16 +30,18 @@ page{
 }
 
 .entry-title {
-    font-weight: 100;
+    font-weight: 300;
     font-size: 40rpx;
     color: #212832;
+    /* color: #000; */
 }
 
 .entry-body {
     /* text-indent: 70rpx; */
     font-size: 34rpx;
-    font-weight: 100;
+    /* font-weight: 200; */
     color: #525963;
+    /* color: #000; */
     padding-top: 20rpx;
     padding-bottom: 20rpx;
 }
@@ -48,10 +51,9 @@ page{
     font-size: 30rpx;
 }
 
-.no-more{
+.no-more {
     text-align: center;
 }
-
 
 .link {
     color: #118FFF;
@@ -63,6 +65,7 @@ page{
 }
 
 /* wxParse 文章样式 */
+
 /* 包裹文章的容器 */
 .article {
     color: #525963;
@@ -72,3 +75,17 @@ page{
     font-size: 30rpx;
 }
 
+/* 无法加载网络的样式 */
+.showerror {
+    text-align: center;
+}
+
+/* 没有了 */
+.no-more {
+    color: #757575;
+    font-size: 30rpx;
+    line-height: 1.8rem;
+    margin-bottom: 15rpx;
+    text-align: center;
+    margin-top: 15rpx;
+}
